@@ -1,0 +1,62 @@
+/*/////////////////////////////////// INICIO TOPO//////////////////////////// */
+
+.top{
+  background-color: #00b8e6;
+  height: 80px
+}
+
+.top img {
+  width: 90px;
+  height: 90px;
+  margin-top: -5px;
+  margin-left: 20px;
+  margin-right: -20px;
+}
+
+/*/////////////////////////////////// FIM TOPO//////////////////////////// */
+/*/////////////////////////////////// INICIO TABS//////////////////////////// */
+.tabs {
+  text-align: center;
+    overflow: hidden;
+    background-color: #00b8e6;
+    height: 70px;
+}
+
+.tabs button {
+    height: 75px;
+    background-color: inherit;
+    color: white;
+    font-family: "Arial Black", Gadget, sans-serif;
+    float: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tabs button:hover {
+    background-color:  #33cfff;
+}
+
+
+.tabs button.active {
+    background-color: #33cfff;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-bottom: 3px solid #ccc;
+}
+
+.tabcontent h1 {
+  text-align: center;
+}
+
+/*/////////////////////////////////// FIM TABS//////////////////////////// */
+body {
+  margin: 0px
+}

@@ -1,3 +1,5 @@
+  /*  1280 720*/
+
 /*/////////////////////////////////// INICIO TOPO//////////////////////////// */
 
 .top{
@@ -16,7 +18,7 @@
 /*/////////////////////////////////// FIM TOPO//////////////////////////// */
 /*/////////////////////////////////// INICIO TABS//////////////////////////// */
 .tabs {
-  text-align: center;
+    text-align: center;
     overflow: hidden;
     background-color: #00b8e6;
     height: 70px;
@@ -38,6 +40,8 @@
 
 .tabs button:hover {
     background-color:  #33cfff;
+    /* border-bottom: 5px solid #ffff66; */
+
 }
 
 
@@ -49,14 +53,57 @@
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border-bottom: 3px solid #ccc;
+    /* border-bottom: 3px solid #ccc; */
 }
 
 .tabcontent h1 {
   text-align: center;
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 
 /*/////////////////////////////////// FIM TABS//////////////////////////// */
+/*/////////////////////////////////// INICIO LISTA-PIZZA//////////////////////////// */
+.lista-items{
+  /* overflow: auto; */
+  width: 70%;
+}
+.lista-items button {
+    /* border: 1px solid grey; */
+    background-color: white;
+    color: Black;
+    padding: 10px 24px;
+    cursor: pointer;
+    height: 100px;
+    width: 100%;
+    display: block;
+    border: none;
+    margin-left: 0px;
+}
+
+.lista-items button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.lista-items button:hover {
+    background-color: #bfbfbf;
+}
+
+ .lista-items img {
+  width: 90px;
+  height: 90px;
+  margin-left: -20px;
+  margin-top: -25px;
+
+}
+
+.lista-items p {
+  text-align:left;
+}
+
+/*/////////////////////////////////// FIM LISTA-PIZZA//////////////////////////// */
 body {
-  margin: 0px
+  margin: 0px;
+  width: 1280px;
+  height: 720px
 }

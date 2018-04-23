@@ -1,0 +1,150 @@
+html {
+  background-color: black;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+  width: 1280px;
+  height: 720px
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'navbar navbar'
+    'tabs tabs'
+    'menu cart'
+    'menu total';
+  grid-template-columns: 1000px 280px;
+  grid-template-rows: 100px 75px 500px 45px;
+}
+
+/*########################## NAVBAR ##########################################*/
+
+.navbar {
+  background-color: #c53c3c;
+  grid-area: navbar;
+}
+.navbar img {
+      max-width: 100px;
+      max-height: 100px;
+      margin-top: 30px;
+      margin-left: 30px;
+}
+#waiter-ico {
+  color: white;
+  margin-left: 1000px;
+}
+#menu-ico {
+  color: white;
+  margin-left: 30px;
+}
+
+/*########################## TABS ##########################################*/
+
+.tabs {
+  grid-area: tabs;
+  background-color: #c53c3c;
+  text-align: center;
+}
+.tabs button {
+  height: 75px;
+  background-color: inherit;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  border: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tabs button:hover {
+    background-color:  #c25757;
+}
+.tabs button.active {
+    background-color: #c25757;
+}
+
+/*########################## MENU ##########################################*/
+
+.menu {
+  grid-area: menu;
+  overflow-y:auto;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /* border-bottom: 3px solid #ccc; */
+}
+
+.lista-items{
+  /* overflow: auto; */
+  border: 1px grey;
+  align-content: center
+}
+.lista-items button {
+    /* border: 1px solid grey; */
+    background-color: white;
+    color: Black;
+    padding: 10px 24px;
+    cursor: pointer;
+    height: 100px;
+    width: 100%;
+    display: block;
+    border: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+    outline: none;
+    border-radius: 5px;
+    line-height: 1.6;
+    align-content: left;
+}
+
+.lista-items button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.lista-items button:hover {
+    background-color:#cecece;
+    border-radius: 5px;
+    border-color: black;
+}
+
+.lista-items img {
+    width: 90px;
+    height: 90px;
+    margin-left: -20px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    margin-right: 6px;
+    padding: 3px 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;
+}
+
+.lista-items p {
+    margin: 0px;
+    text-align:left;
+    padding-bottom: 5px;
+}
+
+/*########################## CART ##########################################*/
+
+.cart {
+  grid-area: cart;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.cart-item {
+
+}
+
+.total {
+  grid-area: total;
+  text-align: center;
+}

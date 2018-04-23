@@ -3,51 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <div class="grid">
-    <div class="header">
+
+  <div class="grid-container">
+    <div class="navbar">
       <img src="img/logo.png" alt="Logotipo">
-      <!-- <i class="fas fa-ellipsis-v"></i>
-        <i class="fas fa-search"></i> -->
-
-      <div class="tabs">
-        <button class="tablinks" onclick="openCity(event, 'Promoções')">Promoções</button>
-        <button class="tablinks" onclick="openCity(event, 'Pizzas')" id="defaultOpen">Pizzas</button>
-        <button class="tablinks" onclick="openCity(event, 'Bebidas')">Bebidas</button>
-        <button class="tablinks" onclick="openCity(event, 'Sobremesas')">Sobremesas</button>
-      </div>
+      <i id="waiter-ico" onClick="callWaiter()" class="fas fa-user-circle fa-3x"></i>
+      <i id="menu-ico" onClick="displayMenu()" class="fas fa-ellipsis-v fa-3x"></i>
     </div>
-
+    <div class="tabs">
+      <button class="tablinks" onclick="openTab(event, 'Promoções')">Promoções</button>
+      <button class="tablinks" onclick="openTab(event, 'Pizzas')" id="defaultOpen">Pizzas</button>
+      <button class="tablinks" onclick="openTab(event, 'Bebidas')">Bebidas</button>
+      <button class="tablinks" onclick="openTab(event, 'Sobremesas')">Sobremesas</button>
+    </div>
     <div class="menu">
       <div id="Pizzas" class="tabcontent">
         <div class="lista-items">
-          <button id="QuatroEstações">
+          <button id="QuatroEstações" onClick="addToCart('quatro-estacoes')">
             <p style="font-size:140%"><b>Quatro Estações,</b> <span class="price">9</span> <img src="img/pizza_quatro_estacoes.jpg" alt="Quatro estações" align="left"></p>
             <p>Preparada em quatro secções com diversos ingredientes, com cada secção representando uma estação do ano. Neste caso alcachofras, tomate, cogumelos e presunto.
               <br>
             </p>
           </button>
-          <button id="QuatroQueijos">
+          <button id="QuatroQueijos" onClick="addToCart('quatro-queijos')">
             <p style="font-size:140%"><b>Quatro Queijos, </b> <span class="price">9</span> <img src="img/quatro_queijos.jpg" alt="Pizza Quatro Queijos" align="left"></p>
             <p>Preparada em quatro secções diferentes: queijo mozzarella, queijo azul, queijo de cabra e parmesão.
               <br>
             </p>
           </button>
-          <button id="PizzaFrango">
+          <button id="PizzaFrango" onClick="addToCart('frango')">
             <p style="font-size:140%"><b>Pizza de frango,</b> <span class="price">9</span> <img src="img/pizza_frango.jpg" alt="Pizza de Frango" align="left"></p>
             <p>Queijo mozzarella e frango.
               <br>
             </p>
           </button>
-          <button id="PizzaPresunto">
+          <button id="PizzaPresunto" onClick="addToCart('presunto')">
             <p style="font-size:140%"><b>Pizza de Presunto,</b> <span class="price">9</span> <img src="img/presunto.jpg" alt="Pizza de Presunto" align="left"></p>
             <p>Queijo mozzarella e presunto.
               <br> </p>
           </button>
-          <button id="PizzaCarbonara">
+          <button id="PizzaCarbonara" onClick="addToCart('carbonara')">
             <p style="font-size:140%"><b>Pizza Carbonara,</b> <span class="price">9</span> <img src="img/carbonara.jpg" alt="Pizza Carbonara" align="left"></p>
             <p>Queijo mozzarella, bacon, molho carbonara e oregãos.
               <br>
@@ -57,23 +56,23 @@
       </div>
       <div id="Bebidas" class="tabcontent">
         <div class="lista-items">
-          <button>
+          <button id="agua" onClick="addToCart('agua')">
             <p style="font-size:140%"><b>Água,</b> <span class="price">1.5</span> <img src="img/water_bottle.jpg" alt="Garrafa de Agua" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="sevenup" onClick="addToCart('sevenup')">
             <p style="font-size:140%"><b>7UP,</b> <span class="price">1.5</span> <img src="img/7up.jpg" alt="7up" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="coca-cola" onClick="addToCart('coca-cola')">
             <p style="font-size:140%"><b>Coca-Cola,</b> <span class="price">1.5</span> <img src="img/coca_cola.jpg" alt="Coca-Cola" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="fanta" onClick="addToCart('fanta')">
             <p style="font-size:140%"><b>Fanta,</b> <span class="price">1.5</span> <img src="img/fanta.jpg" alt="Fanta" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="pepsi" onClick="addToCart('pepsi')">
             <p style="font-size:140%"><b>Pepsi,</b> <span class="price">1.5</span> <img src="img/pepsi.jpg" alt="Pepsi" align="left"></p>
             <p></p>
           </button>
@@ -81,36 +80,35 @@
       </div>
       <div id="Sobremesas" class="tabcontent">
         <div class="lista-items">
-          <button>
+          <button id="brigadeiro" onClick="addToCart('brigadeiro')">
             <p style="font-size:140%"><b>Brigadeiro,</b> <span class="price">2</span> <img src="img/brigadeiro.jpg" alt="Fatia de brigadeiro" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="gelado-morango" onClick="addToCart('gelado-morango')">
             <p style="font-size:140%"><b>Gelado de morango,</b> <span class="price">2</span> <img src="img/gelado_morango.jpg" alt="Gelado de morango" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="mousse-chocolate" onClick="addToCart('mousse-chocolate')">
             <p style="font-size:140%"><b>Mousse de chocolate,</b> <span class="price">2</span> <img src="img/mousse.jpg" alt="Mousse de chocolate" align="left"></p>
             <p></p>
           </button>
-          <button>
+          <button id="salada-fruta" onClick="addToCart('salada-fruta')">
             <p style="font-size:140%"><b>Salada de fruta,</b> <span class="price">2</span> <img src="img/salada_de_frutas.jpg" alt="Salada de frutas" align="left"></p>
             <p></p>
           </button>
         </div>
       </div>
     </div>
-    <div class="carrinho">
-      <p id="titulo"><b style="font-size:160%" align="left">Carrinho</b></p>
-      <div class="listaCompras">
-
-      </div>
+    <div id="cart" class="cart">
+      Empty
     </div>
-    <div class="footer">
+    <div class="total">
+      Total a pagar:
     </div>
   </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </body>
 

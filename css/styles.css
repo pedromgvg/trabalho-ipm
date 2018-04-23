@@ -138,13 +138,21 @@ body {
   grid-area: cart;
   text-align: center;
   padding-top: 20px;
+  overflow-y: auto;
 }
 
 .cart-item {
-
+  margin: 10px;
+  border: solid #000;
+  border-width: 2px;
+  padding-bottom: 5px;
+}
+.cart-item p {
+  margin: 10px;
 }
 
 .total {
   grid-area: total;
   text-align: center;
+  padding-top: 10px;
 }

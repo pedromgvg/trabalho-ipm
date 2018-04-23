@@ -77,48 +77,73 @@ function addToCart (itemName) {
   switch (itemName) {
     case 'quatro-estacoes':
       order.push(pizzaQuatroEstacoes);
+      auxAdd("Pizza Quatro Estações")
       break;
     case 'quatro-queijos':
       order.push(pizzaQuatroQueijos);
+      auxAdd("Pizza Quatro Queijos")
       break;
     case 'frango':
       order.push(pizzaFrango);
+      auxAdd("Pizza de Frango")
       break;
     case 'presunto':
       order.push(pizzaPresunto);
+      auxAdd("Pizza de Presunto")
       break;
     case 'carbonara':
       order.push(pizzaCarbonara);
+      auxAdd("Pizza de Carbonara")
       break;
     case 'agua':
       order.push(agua);
+      auxAdd("Água")
       break;
     case 'sevenup':
       order.push(sevenup);
+      auxAdd("7 Up")
       break;
     case 'coca-cola':
       order.push(cocacola);
+      auxAdd("Coca Cola")
       break;
     case 'fanta':
       order.push(fanta);
+      auxAdd("Fanta")
       break;
     case 'pepsi':
       order.push(pepsi);
+      auxAdd("Pepsi")
       break;
     case 'brigadeiro':
       order.push(brigadeiro);
+      auxAdd("Brigadeiro")
       break;
     case 'gelado-morango':
       order.push(geladoMorango);
+      auxAdd("Gelado de Morango")
       break;
     case 'mousse-chocolate':
       order.push(mousseChocolate);
+      auxAdd("Mousse de Chocolate")
       break;
     case 'salada-fruta':
-      order.push(saladaFruta);
-      $(".cart").append("Some appended text.");
+      order.push({'order.length' : saladaFruta});
+      auxAdd("Salada de Frutas")
       break;
   }
+}
+
+function auxAdd (name) {
+  $(".cart").prepend('<div id="' + (order.length - 1) +
+  '" class="cart-item"><p>' + name + '</p><button onClick="removeOrder('+
+  (order.length - 1) +')" id="' + 'b' + (order.length - 1) +
+  '">Remover</button></div>');
+}
+
+function removeOrder (id) {
+  $("#" + id).remove()
+  order.remove
 }
 
 function callWaiter () {

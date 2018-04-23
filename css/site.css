@@ -2,17 +2,27 @@
 
 /*/////////////////////////////////// INICIO TOPO//////////////////////////// */
 
-.top{
-  background-color: #00b8e6;
-  height: 80px
+.grid{
+    display: grid;
+    grid-template-areas:'header header'
+    'menu carrinho'
+    'footer footer';
 }
 
-.top img {
-  width: 90px;
-  height: 90px;
-  margin-top: -5px;
-  margin-left: 20px;
-  margin-right: -20px;
+.header{
+    grid-area: header;
+    background-color: #c53c3c;
+    height: 150px;
+}
+
+.header img {
+    width: auto;
+    max-width: 100px;
+    height: auto;
+    max-height: 100px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: -20px;
 }
 
 /*/////////////////////////////////// FIM TOPO//////////////////////////// */
@@ -20,7 +30,7 @@
 .tabs {
     text-align: center;
     overflow: hidden;
-    background-color: #00b8e6;
+    background-color: #c53c3c;
     height: 70px;
 }
 
@@ -28,8 +38,7 @@
     height: 75px;
     background-color: inherit;
     color: white;
-    font-family: "Arial Black", Gadget, sans-serif;
-    float: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;    float: center;
     border: none;
     outline: none;
     cursor: pointer;
@@ -39,14 +48,14 @@
 }
 
 .tabs button:hover {
-    background-color:  #33cfff;
+    background-color:  #c25757;
     /* border-bottom: 5px solid #ffff66; */
 
 }
 
 
 .tabs button.active {
-    background-color: #33cfff;
+    background-color: #c25757;
 }
 
 /* Style the tab content */
@@ -58,7 +67,7 @@
 
 .tabcontent h1 {
   text-align: center;
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 /*/////////////////////////////////// FIM TABS//////////////////////////// */
@@ -66,6 +75,9 @@
 .lista-items{
   /* overflow: auto; */
   width: 70%;
+  grid-area: menu;
+  border: 1px grey;
+  align-content: left
 }
 .lista-items button {
     /* border: 1px solid grey; */
@@ -77,7 +89,13 @@
     width: 100%;
     display: block;
     border: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
     margin-left: 0px;
+    outline: none;
+    border-radius: 5px;
+    line-height: 1.6;
+    align-content: left;
 }
 
 .lista-items button:not(:last-child) {
@@ -86,20 +104,43 @@
 
 /* Add a background color on hover */
 .lista-items button:hover {
-    background-color: #bfbfbf;
+    background-color:#cecece;
+    border-radius: 5px;
+    border-color: black;
 }
 
- .lista-items img {
-  width: 90px;
-  height: 90px;
-  margin-left: -20px;
-  margin-top: -25px;
-
+.lista-items img {
+    width: 90px;
+    height: 90px;
+    margin-left: -20px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    margin-right: 6px;
+    padding: 3px 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;
 }
 
 .lista-items p {
-  text-align:left;
+    margin: 0px;
+    text-align:left;
+    padding-bottom: 5px;
 }
+
+.carrinho{
+    width: 30%;
+}
+
+.carrinho > #titulo {
+    text-align: center;
+    margin-right: 50px;
+}
+
+p{
+    font-size: 110%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
 
 /*/////////////////////////////////// FIM LISTA-PIZZA//////////////////////////// */
 body {

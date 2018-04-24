@@ -1,7 +1,7 @@
 document.getElementById("defaultOpen").click();
 
 var order = []
-var globalPrice = 0
+var globalPrice = 0.0
 var overflowVisible = false
 
 var pizzaQuatroEstacoes = {
@@ -56,22 +56,22 @@ var pepsi = {
 }
 var brigadeiro = {
   name: 'Brigadeiro',
-  price: 1.5,
+  price: 2,
   ingredients: ['Brigadeiro']
 }
 var geladoMorango = {
   name: 'Gelado de Morango',
-  price: 1.5,
+  price: 2,
   ingredients: ['Gelado de Morango']
 }
 var mousseChocolate = {
   name: 'Mousse de Chocolate',
-  price: 1.5,
+  price: 2,
   ingredients: ['Mousse de Chocolate']
 }
 var saladaFruta = {
   name: 'Salada de Fruta',
-  price: 1.5,
+  price: 2,
   ingredients: ['Salada de Fruta']
 }
 
@@ -159,8 +159,10 @@ function auxAdd (name, price) {
 }
 
 function removeOrder (id) {
+  var price = parseFloat($("#" + id).text().split(" - ")[1].split("€")[0])
+  globalPrice -= price
   $("#" + id).remove()
-  order.remove
+  $(".total").text("Total a pagar: " + globalPrice)
 }
 
 function callWaiter () {

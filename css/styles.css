@@ -173,3 +173,21 @@ body {
   height: 50%;
   width: 100%
 }
+
+/*########################## CUstomization Menu###############################*/
+
+.customization-menu {
+  width: 1280px;
+  height: 720px;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  left: 1225px;
+  top: 10px;
+}

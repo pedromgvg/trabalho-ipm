@@ -154,7 +154,7 @@ function auxAdd (name, price) {
   $(".cart").prepend('<div id="' + (order.length - 1) +
   '" class="cart-item"><p>' + name + ' - ' + price + '€</p><button onClick="removeOrder('+
   (order.length - 1) +')" id="' + 'b' + (order.length - 1) +
-  '">Remover</button><button>Customiza</button></div>');
+  '">Remover</button><button onClick="openCustomization('+ (order.length - 1) + ')">Customiza</button></div>');
   $(".total").text("Total a pagar: " + globalPrice)
 }
 
@@ -192,4 +192,16 @@ function openTab(evt, tabName) {
     $(".tablinks").removeClass('active');
     $("#" + tabName).css("display", "block")
     evt.currentTarget.className += " active";
+}
+
+function closeCustomization () {
+  $(".customization-menu").css("display", "none")
+  $(".ingredients-list").empty()
+}
+
+function openCustomization (reference) {
+  $(".customization-menu").css("display", "block")
+  order[reference].ingredients.forEach(function(ingredient) {
+    $(".ingredients-list").append('<label><input type="checkbox" id="' + ingredient + '">' + ingredient + '</label></br>')
+  })
 }

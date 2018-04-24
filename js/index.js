@@ -1,75 +1,77 @@
 document.getElementById("defaultOpen").click();
 
 var order = []
+var globalPrice = 0
+var overflowVisible = false
 
 var pizzaQuatroEstacoes = {
   name: 'Quatro Queijos',
-  price: '9',
+  price: 9,
   ingredients: ['Queijo Mozzarela', 'Queijo Azul', 'Queijo de Cabra', 'Queijo Parmesão']
 }
 var pizzaQuatroQueijos = {
   name: 'Quatro Estacoes',
-  price: '9',
+  price: 9,
   ingredients: ['Alcachofras', 'Tomate', 'Cogumelos', 'Presunto']
 }
 var pizzaFrango = {
   name: 'Pizza Frango',
-  price: '9',
+  price: 9,
   ingredients: ['Queijo Mozzarela', 'Frango']
 }
 var pizzaPresunto = {
   name: 'Pizza Presunto',
-  price: '9',
+  price: 9,
   ingredients: ['Queijo Mozzarela', 'Presunto']
 }
 var pizzaCarbonara = {
   name: 'Pizza Presunto',
-  price: '9',
+  price: 9,
   ingredients: ['Queijo Mozzarela', 'Bacon', 'Molho Carbonara', 'Oregãos']
 }
 var agua = {
-  name: 'agua',
-  price: '1.5',
+  name: 'Água',
+  price: 1.5,
   ingredients: ['Água', 'Gelo']
 }
 var sevenup = {
-  name: 'sevenup',
-  price: '1.5',
+  name: '7-Up',
+  price: 1.5,
   ingredients: ['Sevenup', 'Gelo']
 }
 var cocacola = {
   name: 'Coca-Cola',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Coca-Cola', 'Gelo']
 }
 var fanta = {
   name: 'Fanta',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Fanta', 'Gelo']
 }
 var pepsi = {
   name: 'Pepsi',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Pepsi', 'Gelo']
 }
 var brigadeiro = {
   name: 'Brigadeiro',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Brigadeiro']
 }
 var geladoMorango = {
   name: 'Gelado de Morango',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Gelado de Morango']
 }
 var mousseChocolate = {
   name: 'Mousse de Chocolate',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Mousse de Chocolate']
 }
 var saladaFruta = {
   name: 'Salada de Fruta',
-  price: '1.5',
+  price: 1.5,
   ingredients: ['Salada de Fruta']
 }
 
@@ -77,68 +79,83 @@ function addToCart (itemName) {
   switch (itemName) {
     case 'quatro-estacoes':
       order.push(pizzaQuatroEstacoes);
-      auxAdd("Pizza Quatro Estações")
+      globalPrice += pizzaQuatroEstacoes.price
+      auxAdd(pizzaQuatroEstacoes.name, pizzaQuatroEstacoes.price)
       break;
     case 'quatro-queijos':
       order.push(pizzaQuatroQueijos);
-      auxAdd("Pizza Quatro Queijos")
+      globalPrice += pizzaQuatroQueijos.price
+      auxAdd(pizzaQuatroQueijos.name, pizzaQuatroQueijos.price)
       break;
     case 'frango':
       order.push(pizzaFrango);
-      auxAdd("Pizza de Frango")
+      globalPrice += pizzaFrango.price
+      auxAdd(pizzaFrango.name, pizzaFrango.price)
       break;
     case 'presunto':
       order.push(pizzaPresunto);
-      auxAdd("Pizza de Presunto")
+      globalPrice += pizzaPresunto.price
+      auxAdd(pizzaPresunto.name, pizzaPresunto.price)
       break;
     case 'carbonara':
       order.push(pizzaCarbonara);
-      auxAdd("Pizza de Carbonara")
+      globalPrice += pizzaCarbonara.price
+      auxAdd(pizzaCarbonara.name, pizzaCarbonara.price)
       break;
     case 'agua':
       order.push(agua);
-      auxAdd("Água")
+      globalPrice += agua.price
+      auxAdd(agua.name, agua.price)
       break;
     case 'sevenup':
       order.push(sevenup);
-      auxAdd("7 Up")
+      globalPrice += sevenup.price
+      auxAdd(sevenup.name, sevenup.price)
       break;
     case 'coca-cola':
       order.push(cocacola);
-      auxAdd("Coca Cola")
+      globalPrice += cocacola.price
+      auxAdd(cocacola.name, cocacola.price)
       break;
     case 'fanta':
       order.push(fanta);
-      auxAdd("Fanta")
+      globalPrice += fanta.price
+      auxAdd(fanta.name, fanta.price)
       break;
     case 'pepsi':
       order.push(pepsi);
-      auxAdd("Pepsi")
+      globalPrice += pepsi.price
+      auxAdd(pepsi.name, pepsi.price)
       break;
     case 'brigadeiro':
       order.push(brigadeiro);
-      auxAdd("Brigadeiro")
+      globalPrice += brigadeiro.price
+      auxAdd(brigadeiro.name, brigadeiro.price)
       break;
     case 'gelado-morango':
       order.push(geladoMorango);
-      auxAdd("Gelado de Morango")
+      globalPrice += geladoMorango.price
+      auxAdd(geladoMorango.name, geladoMorango.price)
       break;
     case 'mousse-chocolate':
       order.push(mousseChocolate);
-      auxAdd("Mousse de Chocolate")
+      globalPrice += mousseChocolate.price
+      auxAdd(mousseChocolate.name, mousseChocolate.price)
       break;
     case 'salada-fruta':
-      order.push({'order.length' : saladaFruta});
-      auxAdd("Salada de Frutas")
+      order.push(saladaFruta);
+      globalPrice += saladaFruta.price
+      auxAdd(saladaFruta.name, saladaFruta.price)
       break;
   }
 }
 
-function auxAdd (name) {
+function auxAdd (name, price) {
   $(".cart").prepend('<div id="' + (order.length - 1) +
-  '" class="cart-item"><p>' + name + '</p><button onClick="removeOrder('+
+  '" class="cart-item"><p>' + name + ' - ' + price + '€</p><button onClick="removeOrder('+
   (order.length - 1) +')" id="' + 'b' + (order.length - 1) +
-  '">Remover</button></div>');
+  '">Remover</button><button>Customiza</button></div>');
+  $(".total").text("Total a pagar: " + globalPrice)
 }
 
 function removeOrder (id) {
@@ -151,19 +168,26 @@ function callWaiter () {
 }
 
 function displayMenu () {
-  alert('Mostrar menu')
+  console.log('specific listen')
+  setTimeout(function() {
+    $(".overflow-menu").css("display", "block")
+  }, 100)
+}
+
+$(document).click(function() {
+  console.log('universal listen')
+  if ($(".overflow-menu").css("display") == "block") {
+    $(".overflow-menu").css("display", "none")
+  }
+});
+
+function buttonOverflowClicked () {
+  alert('One of the overflow options was clicked')
 }
 
 function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
+    $(".tabcontent").css("display", "none")
+    $(".tablinks").removeClass('active');
+    $("#" + tabName).css("display", "block")
     evt.currentTarget.className += " active";
 }

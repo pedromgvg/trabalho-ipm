@@ -156,3 +156,20 @@ body {
   text-align: center;
   padding-top: 10px;
 }
+
+/*########################## Overflow Menu####################################*/
+
+.overflow-menu {
+  width: 250px;
+  height: 150px;
+  background-color: grey;
+  position: absolute;
+  left: 1000px;
+  top: 20px;
+  display: none;
+}
+
+.overflow-menu button {
+  height: 50%;
+  width: 100%
+}

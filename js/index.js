@@ -4,75 +4,89 @@ var order = []
 var globalPrice = 0.0
 var overflowVisible = false
 
-var pizzaQuatroEstacoes = {
+var pizzaQuatroQueijos = {
   name: 'Quatro Queijos',
   price: 9,
-  ingredients: ['Queijo Mozzarela', 'Queijo Azul', 'Queijo de Cabra', 'Queijo Parmesão']
+  ingredients: ['Queijo Mozzarela', 'Queijo Azul', 'Queijo de Cabra', 'Queijo Parmesão'],
+  customized: [true, true, true, true]
 }
-var pizzaQuatroQueijos = {
+var pizzaQuatroEstacoes = {
   name: 'Quatro Estacoes',
   price: 9,
-  ingredients: ['Alcachofras', 'Tomate', 'Cogumelos', 'Presunto']
+  ingredients: ['Alcachofras', 'Tomate', 'Cogumelos', 'Presunto'],
+  customized: [true, true, true, true]
 }
 var pizzaFrango = {
   name: 'Pizza Frango',
   price: 9,
-  ingredients: ['Queijo Mozzarela', 'Frango']
+  ingredients: ['Queijo Mozzarela', 'Frango'],
+  customized: [true, true]
 }
 var pizzaPresunto = {
   name: 'Pizza Presunto',
   price: 9,
-  ingredients: ['Queijo Mozzarela', 'Presunto']
+  ingredients: ['Queijo Mozzarela', 'Presunto'],
+  customized: [true, true]
 }
 var pizzaCarbonara = {
-  name: 'Pizza Presunto',
+  name: 'Pizza Carbonara',
   price: 9,
-  ingredients: ['Queijo Mozzarela', 'Bacon', 'Molho Carbonara', 'Oregãos']
+  ingredients: ['Queijo Mozzarela', 'Bacon', 'Molho Carbonara', 'Oregãos'],
+  customized: [true, true, true, true]
 }
 var agua = {
   name: 'Água',
   price: 1.5,
-  ingredients: ['Água', 'Gelo']
+  ingredients: ['Água', 'Gelo'],
+  customized: [true, true]
 }
 var sevenup = {
   name: '7-Up',
   price: 1.5,
-  ingredients: ['Sevenup', 'Gelo']
+  ingredients: ['Sevenup', 'Gelo'],
+  customized: [true, true]
 }
 var cocacola = {
   name: 'Coca-Cola',
   price: 1.5,
-  ingredients: ['Coca-Cola', 'Gelo']
+  ingredients: ['Coca-Cola', 'Gelo'],
+  customized: [true, true]
 }
 var fanta = {
   name: 'Fanta',
   price: 1.5,
-  ingredients: ['Fanta', 'Gelo']
+  ingredients: ['Fanta', 'Gelo'],
+  customized: [true, true]
 }
 var pepsi = {
   name: 'Pepsi',
   price: 1.5,
-  ingredients: ['Pepsi', 'Gelo']
+  ingredients: ['Pepsi', 'Gelo'],
+  customized: [true, true]
 }
 var brigadeiro = {
   name: 'Brigadeiro',
   price: 2,
-  ingredients: ['Brigadeiro']
+  ingredients: ['Brigadeiro'],
+  customized: [true]
 }
 var geladoMorango = {
   name: 'Gelado de Morango',
   price: 2,
-  ingredients: ['Gelado de Morango']
+  ingredients: ['Gelado de Morango'],
+  customized: [true]
 }
 var mousseChocolate = {
   name: 'Mousse de Chocolate',
   price: 2,
-  ingredients: ['Mousse de Chocolate']
+  ingredients: ['Mousse de Chocolate'],
+  customized: [true]
 }
 var saladaFruta = {
   name: 'Salada de Fruta',
   price: 2,
-  ingredients: ['Salada de Fruta']
+  ingredients: ['Salada de Fruta'],
+  customized: [true]
 }
 
 function addToCart (itemName) {
@@ -177,7 +191,6 @@ function displayMenu () {
 }
 
 $(document).click(function() {
-  console.log('universal listen')
   if ($(".overflow-menu").css("display") == "block") {
     $(".overflow-menu").css("display", "none")
   }
@@ -196,12 +209,43 @@ function openTab(evt, tabName) {
 
 function closeCustomization () {
   $(".customization-menu").css("display", "none")
-  $(".ingredients-list").empty()
+  $(".removable").remove()
 }
 
 function openCustomization (reference) {
-  $(".customization-menu").css("display", "block")
+  $(".customization-menu").append('<h2 class="removable">Estás a customizar o elemento ' + order[reference].name + '</h2>')
+  $(".customization-menu").append('<h3 class="removable">Ingredientes:</h3>')
+  $(".customization-menu").append('<div class="ingredients-list removable"></div>')
+  var id= 0
   order[reference].ingredients.forEach(function(ingredient) {
-    $(".ingredients-list").append('<label><input type="checkbox" id="' + ingredient + '">' + ingredient + '</label></br>')
+    $(".ingredients-list").append('<label><input type="checkbox" id="' + 'c' + id + '" ' + (order[reference].customized[id] ? 'checked' : '') + '>' + ingredient + '</label></br>')
+    id += 1
   })
+  $(".customization-menu").append('<button class="removable" onClick="saveChanges(' + reference + ')">Gravar alterações</button>')
+  $(".customization-menu").css("display", "block")
+}
+
+$('[type="checkbox"]').on('click', function() {
+    console.log("The element with id " + this.id + " changed.");
+});
+
+function saveChanges (reference) {
+  //Queremos gravar alterações ao pedido em order[reference]
+  var newPedido = $.extend(true, {}, order[reference]);
+  var ingredientesFora = []
+  var ingredientesIn = []
+  var numb = 0
+
+  order[reference].ingredients.forEach(function (atual) {
+    if (!($('#c' + numb).is(':checked'))) {
+      ingredientesFora.push(atual)
+      newPedido.customized[numb] = false
+    } else {
+      ingredientesIn.push(atual)
+      newPedido.customized[numb] = true
+    }
+    numb += 1
+  })
+
+  order[reference] = newPedido
 }

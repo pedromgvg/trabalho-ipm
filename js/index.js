@@ -246,6 +246,10 @@ function saveChanges (reference) {
     }
     numb += 1
   })
-
   order[reference] = newPedido
+  $('#' + reference +" .removable-again").remove()
+  ingredientesFora.forEach(function (atual) {
+    $('#' + reference).append('<p class="removable-again">Sem ' + atual + '</p>')
+  })
+  closeCustomization()
 }

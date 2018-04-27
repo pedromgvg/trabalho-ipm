@@ -176,7 +176,7 @@ function removeOrder (id) {
   var price = parseFloat($("#" + id).text().split(" - ")[1].split("€")[0])
   globalPrice -= price
   $("#" + id).remove()
-  $(".total").text("Total a pagar: " + globalPrice)
+  $(".total").text("Total a pagar: " + globalPrice + " €")
 }
 
 function callWaiter () {

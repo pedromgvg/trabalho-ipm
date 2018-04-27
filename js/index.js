@@ -169,7 +169,7 @@ function auxAdd (name, price) {
   '" class="cart-item"><p>' + name + ' - ' + price + '€</p><button onClick="removeOrder('+
   (order.length - 1) +')" id="' + 'b' + (order.length - 1) +
   '">Remover</button><button onClick="openCustomization('+ (order.length - 1) + ')">Customiza</button></div>');
-  $(".total").text("Total a pagar: " + globalPrice)
+  $(".total").text("Total a pagar: " + globalPrice + " €")
 }
 
 function removeOrder (id) {
